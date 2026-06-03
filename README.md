@@ -2,6 +2,7 @@
 
 ### *Predictive Microbiology · Machine Learning · GPR Uncertainty Quantification · SHAP Explainability*
 
+[![Publication](https://img.shields.io/badge/DOI-10.3389%2Ffmicb.2023.1175304-blue)](https://doi.org/10.1016/j.ijfoodmicro.2022.109985)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aeromonas-growth-predictor.streamlit.app/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-GPR%20%7C%20RF%20%7C%20XGBoost-F7931E)](https://scikit-learn.org)
@@ -17,7 +18,7 @@ Machine learning extension of the Ratkowsky mechanistic model — predicting *Ae
 
 ## 🖥️ Interactive App
 
-**Live app →** (https://aeromonas-growth-predictor.streamlit.app/)
+**Live app →** https://aeromonas-growth-predictor.streamlit.app/
 
 Three-tab interface:
 - **📊 Prediction** — storage conditions → GPR μmax + 95% CI + time-to-threshold scenarios + SHAP waterfall + hurdle optimizer
@@ -193,10 +194,14 @@ These two projects form a connected portfolio analysing *Aeromonas* food safety 
 }
 ```
 
-> ⚠️ Verify DOI before publishing — confirm at [doi.org](https://doi.org).
 
 ---
 
 ## 📬 Contact
 
-*Questions, feedback, or collaboration enquiries welcome.*
+**Hyejeong Lee** — PhD · Food Microbiology & Data Science
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hyejeong%20Lee-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hyejeong-lee-75887465/)
+[![GitHub](https://img.shields.io/badge/GitHub-hyejeong0617-181717?logo=github&logoColor=white)](https://github.com/hyejeong0617)
+
+*Open to Scientific Data Analyst and Regulatory Intelligence roles (Germany / Remote).*
