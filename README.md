@@ -3,7 +3,7 @@
 ### *Predictive Microbiology · Machine Learning · GPR Uncertainty Quantification · SHAP Explainability*
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-url.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aeromonas-growth-predictor.streamlit.app/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-GPR%20%7C%20RF%20%7C%20XGBoost-F7931E)](https://scikit-learn.org)
 [![SHAP](https://img.shields.io/badge/SHAP-TreeExplainer-FF6B35)](https://shap.readthedocs.io)
 
@@ -17,7 +17,7 @@ Machine learning extension of the Ratkowsky mechanistic model — predicting *Ae
 
 ## 🖥️ Interactive App
 
-**Live app →** [your-app-url.streamlit.app](https://your-app-url.streamlit.app)
+**Live app →** (https://aeromonas-growth-predictor.streamlit.app/)
 
 Three-tab interface:
 - **📊 Prediction** — storage conditions → GPR μmax + 95% CI + time-to-threshold scenarios + SHAP waterfall + hurdle optimizer
