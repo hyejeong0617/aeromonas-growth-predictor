@@ -170,12 +170,14 @@ streamlit run streamlit_app.py
 
 ## 🔗 Related Projects
 
-| Project | Domain | Type |
-|---------|--------|------|
-| **This repo** | Predictive microbiology · food safety | ML · GPR · SHAP · Streamlit |
-| [amr_genomics_aeromonas](https://github.com/hyejeong0617/amr_genomics_aeromonas) | Microbial genomics · AMR | WGS pipeline · Python · Streamlit |
+| Project | Domain | Type | Status |
+|---|---|---|---|
+| [rasff_risk_predictor](https://github.com/hyejeong0617/rasff_risk_predictor) | EU regulatory notifications | ML pipeline · NLP · Streamlit | ✅ Live |
+| [foodborne_outbreaks_eda](https://github.com/hyejeong0617/foodborne_outbreaks_eda) | Food safety surveillance | EDA · SQL · entity normalisation · Streamlit | ✅ Live |
+| **This repo** | Predictive microbiology · food safety | ML · GPR · SHAP · Streamlit | ✅ Live |
+| [amr_genomics_aeromonas](https://github.com/hyejeong0617/amr_genomics_aeromonas) | Microbial genomics · One Health | WGS pipeline · Python analysis · Streamlit | ✅ Live |
 
-These two projects form a connected portfolio analysing *Aeromonas* food safety risk at two scales: **growth kinetics** (this repo) and **genomic AMR/virulence characterisation** (amr_genomics_aeromonas).
+**The four projects form a connected portfolio** — analysing food safety risk at four scales: real-time EU regulatory signal (RASFF ML), population-level surveillance (foodborne EDA), growth kinetics modelling (this repo), and molecular genomics (AMR genomics).
 
 ---
 
