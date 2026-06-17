@@ -204,4 +204,5 @@ These two projects form a connected portfolio analysing *Aeromonas* food safety 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Hyejeong%20Lee-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hyejeong-lee-75887465/)
 [![GitHub](https://img.shields.io/badge/GitHub-hyejeong0617-181717?logo=github&logoColor=white)](https://github.com/hyejeong0617)
 
-*Open to Scientific Data Analyst and Regulatory Intelligence roles (Germany / Remote).*
+*Open to Domain Data Scientist / Regulatory Data Analyst roles in food safety, 
+      pharma, and biotech — Remote / Hybrid · Germany-based.*
