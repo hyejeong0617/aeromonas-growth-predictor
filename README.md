@@ -2,7 +2,7 @@
 
 ### *Predictive Microbiology · Machine Learning · GPR Uncertainty Quantification · SHAP Explainability*
 
-[![Publication](https://img.shields.io/badge/DOI-10.3389%2Ffmicb.2023.1175304-blue)](https://doi.org/10.1016/j.ijfoodmicro.2022.109985)
+[![Publication](https://img.shields.io/badge/DOI-10.1016%2Fj.ijfoodmicro.2022.109985-blue)](https://doi.org/10.1016/j.ijfoodmicro.2022.109985)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aeromonas-growth-predictor.streamlit.app/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-GPR%20%7C%20RF%20%7C%20XGBoost-F7931E)](https://scikit-learn.org)
