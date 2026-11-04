@@ -1,0 +1,17 @@
+{
+  "all_sections": true,
+  "empty_filter": true,
+  "treatment_filter": true,
+  "fold_selector": true,
+  "three_model_selections": true,
+  "missing_optional_file": true,
+  "no_model_fitting_or_loading": true,
+  "protected_hashes_unchanged": true,
+  "local_startup": "PASS: Streamlit at http://127.0.0.1:8502; browser rendered all three sections",
+  "desktop_viewport": "1280x900 inspected",
+  "mobile_viewport": "390x844 inspected; document width 390, no horizontal page overflow",
+  "metrics_match_phase2": true,
+  "NG_rates_missing_not_zero": true,
+  "external_links": "hrefs verified; remote fetch attempts inconclusive (DOI inaccessible; GitHub cache miss)",
+  "deployment": "Not performed; local review ready"
+}

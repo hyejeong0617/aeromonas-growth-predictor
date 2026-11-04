@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "source_sha256": "45a1385dbb59531755a6372969c18b983fb168f2450b554d72eba574e88db7a9",
+  "conditions": 158,
+  "tables": {
+    "A": 48,
+    "B": 42,
+    "C": 34,
+    "D": 34
+  },
+  "growth": {
+    "Y": 110,
+    "NG": 40,
+    "NL": 8
+  },
+  "growth_positive": 118,
+  "ymax_available": 108,
+  "NA_ymax": 10,
+  "all_source_fields_match": true,
+  "original_docx_unchanged": true,
+  "duplicate_conditions": 0,
+  "isolated_time_formula_test": {
+    "input": [
+      0.05,
+      0.025,
+      0.1,
+      2,
+      5,
+      5
+    ],
+    "expected": [
+      65,
+      35,
+      125
+    ],
+    "actual": [
+      65.0,
+      35.0,
+      125.0
+    ]
+  },
+  "protected_artifacts_unchanged": [
+    "models/best_lag_h.pkl",
+    "models/best_mu_max.pkl",
+    "models/best_ymax.pkl",
+    "models/encoders.pkl",
+    "outputs/01a_kinetics_tsb.png",
+    "outputs/01b_kinetics_sj.png",
+    "outputs/02_intro_shared_y.png",
+    "outputs/02a_tsb_vs_sj_individual_y.png",
+    "outputs/02b_tsb_sj_difference.png",
+    "outputs/04b_jjt01_2p6_extreme.png",
+    "outputs/05a_correlation_heatmap.png",
+    "outputs/05b_scatter_matrix.png",
+    "outputs/07_ratkowsky_v3.png",
+    "outputs/08_loso_predicted_vs_actual.png",
+    "outputs/09a_model_comparison_r2.png",
+    "outputs/09b_gpr_prediction_intervals.png",
+    "outputs/10_per_strain_r2_heatmap.png",
+    "outputs/11_residual_distributions.png",
+    "outputs/12_permutation_importance.png",
+    "outputs/13_ml_vs_ratkowsky_benchmark.png",
+    "outputs/14_shap_beeswarm_mu_max.png",
+    "outputs/15_shap_bar_hurdle_ranking.png",
+    "outputs/16_shap_dependence_plots.png",
+    "outputs/17_shap_per_species.png",
+    "outputs/18a_shap_total_heatmaps.png",
+    "outputs/18b_shap_2feature_heatmaps.png",
+    "outputs/19_shap_waterfall_examples.png",
+    "outputs/step2_loso_per_fold_results.csv",
+    "outputs/step2_loso_performance_summary.csv",
+    "outputs/step2_ml_vs_ratkowsky_benchmark.csv",
+    "outputs/step3_hurdle_ranking.csv",
+    "outputs/step3_shap_values.csv"
+  ],
+  "EDA_figures_regenerated": [
+    "outputs/03_nacl_inhibition_4c_8c.png",
+    "outputs/04a_pcs_lag_main.png",
+    "outputs/04b_jjt01_0p26_extreme.png",
+    "outputs/06_growth_boundary_improved.png"
+  ],
+  "executed": "Only canonical data cells 4-9 and 11, setup constants, EDA cells 19/21/25, source comparisons, syntax checks and isolated time formula.",
+  "not_executed": [
+    "full notebooks",
+    "Ratkowsky fitting",
+    "GPR training",
+    "RF training",
+    "XGBoost training",
+    "LOSO",
+    "SHAP",
+    "Streamlit app",
+    "saved model loading"
+  ],
+  "visual_review": "Four regenerated EDA PNGs inspected; final revised figures 03, 04a and 06 rechecked.",
+  "git_diff_check": "PASS"
+}

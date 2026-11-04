@@ -12,9 +12,11 @@
 
 > **Based on:** Lee et al. (2023). *The effect of food processing factors on the growth kinetics of Aeromonas strains isolated from ready-to-eat seafood.* Int. J. Food Microbiology, 384:109985.
 
-Machine learning extension of the Ratkowsky mechanistic model — predicting *Aeromonas* maximum growth rate (μmax, h⁻¹) under hurdle technology conditions (temperature, NaCl, bacteriocin), with GPR-calibrated uncertainty quantification and SHAP-based feature attribution.
+Machine learning extension of the Ratkowsky mechanistic model — predicting *Aeromonas* maximum growth rate (μmax, log10 CFU/h) under hurdle technology conditions (temperature, NaCl, purified condensed smoke (PCS)), with GPR-calibrated uncertainty quantification and SHAP-based feature attribution.
 
 ---
+
+> **Phase 1 data repair (2026-11-04):** Source records verified against Supplementary Tables A-D and the author's high-dose PCS confirmation. The master now contains 158 conditions (118 growth-positive, 40 NG). Rates retain the source decimal-log scale, log10 CFU/h. NaCl_pct means added NaCl; TSB total salt = added + 0.5 percentage points. SJ total salt is not inferred. Historical model metrics, SHAP results and saved PNGs predate this repair and require Phase 2 revalidation. See `audit/phase1/REPORT.md` and `DATA_PROVENANCE.md`.
 
 ## 🖥️ Interactive App
 
@@ -35,7 +37,7 @@ Most ComBase predictive models for *Aeromonas* focus on *A. hydrophila* and *A. 
 |-----------|-------------------------------|
 | **Domain-driven design** | LOSO CV strategy, feature selection rationale, and scope decisions grounded in predictive microbiology principles |
 | **Uncertainty quantification** | GPR LOSO R² = 0.892 ± 0.040 — calibrated 95% CI maps directly to fast/slow growth scenarios |
-| **Explainable AI** | SHAP waterfall + global importance — PCS (bacteriocin) ranked above NaCl as chemical hurdle |
+| **Explainable AI** | SHAP waterfall + global importance — purified condensed smoke (PCS) ranked above NaCl as chemical hurdle |
 | **Validation rigour** | Leave-One-Strain-Out CV (8 folds) — strain-naive generalisation, zero data leakage between strains |
 | **Interactive research tool** | Time-to-threshold calculator, hurdle optimizer, strain reference panel |
 
@@ -46,8 +48,8 @@ Most ComBase predictive models for *Aeromonas* focus on *A. hydrophila* and *A. 
 | Dimension | Finding |
 |-----------|---------|
 | **Primary μmax driver** | Temperature — ~4× SHAP weight vs all other features; Ratkowsky model confirmed at ML level |
-| **Chemical hurdle ranking** | PCS Concentration > NaCl — bacteriocin suppresses μmax more efficiently per unit |
-| **PCS threshold** | Effective above ~0.125%; negligible below ~0.025% (3 discrete levels tested in Lee et al.) |
+| **Chemical hurdle attribution** | Historical RF attribution only; not comparative antimicrobial efficiency |
+| **PCS doses** | 0.026%, 0.13%, and author-confirmed 0.26%; no universal threshold established |
 | **Medium effect** | SJ (salmon juice) μmax ≈ 35% lower than TSB — captured from Table A paired data |
 | **ML vs Ratkowsky** | GPR R²=0.892 vs Ratkowsky R²=0.612 under identical LOSO protocol (Temperature subset) |
 | **Scope decisions** | lag_h excluded (per-fold R²=0.579±0.365); Ymax excluded (R²<0 across all models) |
@@ -160,7 +162,7 @@ streamlit run streamlit_app.py
 | **Laboratory medium** | All predictions based on TSB (broth). Limited SJ (salmon juice) data covers temperature only. **Not directly applicable as product shelf-life.** |
 | **Growth scenario ≠ shelf-life** | Food matrix effects (pH gradients, water activity, competing microbiota) are absent from the model. |
 | **n=118, 8 strains** | Small dataset — limited taxonomic coverage; not generalisable beyond the experimental design. |
-| **NaCl × PCS not co-tested** | Interaction between salt and bacteriocin is structurally absent from training data. |
+| **NaCl × PCS not co-tested** | Interaction between salt and purified condensed smoke (PCS) is structurally absent from training data. |
 | **lag_h not predicted** | Per-fold R²=0.579±0.365 — too unstable; treated as user-defined assumption in the app. |
 | **Temperature range** | Trained on 4, 8, 15°C only. Intermediate values = GPR interpolation; values outside = extrapolation (CI widens automatically). |
 
@@ -208,3 +210,14 @@ streamlit run streamlit_app.py
 
 *Open to Domain Data Scientist / Regulatory Data Analyst roles in food safety, 
       pharma, and biotech — Remote / Hybrid · Germany-based.*
+
+## Source data and units
+
+The canonical Step 1 notebook constructs the master CSV and verifies it against
+`data/supplementary_records.json`, a transcription of the supplied Supplementary Tables A-D.
+See [Data provenance](DATA_PROVENANCE.md) and [Phase 1 verification report](audit/phase1/REPORT.md).
+`NaCl_pct` is added NaCl (%); total TSB salt is added + 0.5 percentage points.
+SJ total salt is not inferred. Rates are used on the source decimal-log scale:
+`growth_duration_h = (log10_target - log10_initial) / rate_log10_per_h`.
+This is a constant-rate scenario with assumed lag, not a food-safety threshold or shelf-life model.
+Do not launch the app during the Phase 1 review: its current cold-start path fits RF and GPR.

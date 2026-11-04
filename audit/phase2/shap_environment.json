@@ -1,0 +1,16 @@
+{
+  "environment": "../.phase2-shap-env",
+  "python": "3.13.5",
+  "isolation": "venv with system-site-packages; NumPy 2.1.3 installed in venv only",
+  "install": "python -m pip --python <venv>/Scripts/python.exe install --no-deps numpy==2.1.3",
+  "versions": {
+    "numpy": "2.1.3",
+    "numba": "0.61.0",
+    "shap": "0.51.0",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.6",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "base_environment_modified": false
+}

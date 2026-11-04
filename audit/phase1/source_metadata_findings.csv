@@ -1,0 +1,161 @@
+source_table,source_row_1based,status,details
+A,2,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,3,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,4,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,6,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,7,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,8,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,10,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,11,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,12,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,14,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,15,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,16,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,18,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,19,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,20,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,22,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,23,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,24,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,26,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,27,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,28,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,30,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,31,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,32,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,34,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,35,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,36,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,38,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,39,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,40,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,42,VERIFIED,NG quantitative entries remain missing
+A,43,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,44,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,46,VERIFIED,NG quantitative entries remain missing
+A,47,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,48,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,50,VERIFIED,NG quantitative entries remain missing
+A,51,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,52,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,54,VERIFIED,NG quantitative entries remain missing
+A,55,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,56,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,58,VERIFIED,NG quantitative entries remain missing
+A,59,VERIFIED,NG quantitative entries remain missing
+A,60,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,62,VERIFIED,NG quantitative entries remain missing
+A,63,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+A,64,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,2,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,3,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,5,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,6,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,7,VERIFIED,NG quantitative entries remain missing
+B,8,VERIFIED,NG quantitative entries remain missing
+B,10,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,11,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,13,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,14,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,15,VERIFIED,NG quantitative entries remain missing
+B,16,VERIFIED,NG quantitative entries remain missing
+B,18,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,19,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,21,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,22,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,23,VERIFIED,NG quantitative entries remain missing
+B,24,VERIFIED,NG quantitative entries remain missing
+B,26,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,27,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,29,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,30,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,31,VERIFIED,NG quantitative entries remain missing
+B,32,VERIFIED,NG quantitative entries remain missing
+B,34,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,35,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,37,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,38,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,39,VERIFIED,NG quantitative entries remain missing
+B,40,VERIFIED,NG quantitative entries remain missing
+B,42,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,43,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,44,VERIFIED,NG quantitative entries remain missing
+B,45,VERIFIED,NG quantitative entries remain missing
+B,47,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,48,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,49,VERIFIED,NG quantitative entries remain missing
+B,50,VERIFIED,NG quantitative entries remain missing
+B,52,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,53,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+B,54,VERIFIED,NG quantitative entries remain missing
+B,55,VERIFIED,NG quantitative entries remain missing
+C,2,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,3,VERIFIED,NG quantitative entries remain missing
+C,5,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,6,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,7,VERIFIED,NG quantitative entries remain missing
+C,9,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,10,VERIFIED,NG quantitative entries remain missing
+C,12,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,13,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,14,VERIFIED,NG quantitative entries remain missing
+C,16,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,17,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,19,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,20,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,21,VERIFIED,NG quantitative entries remain missing
+C,23,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,24,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,26,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,27,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,28,VERIFIED,NG quantitative entries remain missing
+C,30,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,31,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,33,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,34,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,35,VERIFIED,NG quantitative entries remain missing
+C,37,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,38,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,39,VERIFIED,NG quantitative entries remain missing
+C,41,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,42,VERIFIED,NG quantitative entries remain missing
+C,43,VERIFIED,NG quantitative entries remain missing
+C,45,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,46,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+C,47,VERIFIED,NG quantitative entries remain missing
+D,2,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,3,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,5,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,6,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,7,VERIFIED,NG quantitative entries remain missing
+D,9,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,10,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,12,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,13,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,14,VERIFIED,NG quantitative entries remain missing
+D,16,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,17,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,19,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,20,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,21,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,23,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,24,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,26,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,27,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,28,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,30,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,31,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,33,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,34,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,35,VERIFIED,NG quantitative entries remain missing
+D,37,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,38,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,39,VERIFIED,NG quantitative entries remain missing
+D,41,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,42,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,43,VERIFIED,NG quantitative entries remain missing
+D,45,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,46,MISSING,Per-parameter reported uncertainty and source flags absent from original master; preserved in source snapshot and repaired master
+D,47,VERIFIED,NG quantitative entries remain missing
+B/C/D,,AMBIGUOUS,Captions label parameter +/- as SE; main article describes SD. Preserve published table label without reinterpretation. Separate final SE column captioned standard error of R2.
+A-D,,AMBIGUOUS,Ymax headers report log CFU/g for liquid cultures; main article distinguishes liquid CFU/ml. Preserve reported headers; do not convert densities.
