@@ -130,7 +130,10 @@ else:
             a,b,c=st.columns(3)
             a.metric('GPR mean LOSO R²', f'{gpr.iloc[0].R2_mean:.3f}')
             b.metric('Held-out strain folds', '8')
-            c.metric('95% interval coverage', '112 / 118')
+            interval_rows=data('audit/phase2/gpr_intervals.csv', columns=['covered'])
+            if interval_rows is not None and len(interval_rows):
+                covered_count=int(interval_rows.covered.astype(str).str.lower().eq('true').sum())
+                c.metric('95% interval coverage', f'{covered_count}/{len(interval_rows)} ({covered_count/len(interval_rows):.2%})')
             st.caption('LOSO R² is the mean across eight folds; interval coverage is empirical within the same experiment, not independent calibration.')
     st.subheader('Observed vs predicted μmax')
     model=st.selectbox('Model', ['GPR','RandomForest','XGBoost'],format_func=lambda x:'Random Forest' if x=='RandomForest' else x,key='model')
