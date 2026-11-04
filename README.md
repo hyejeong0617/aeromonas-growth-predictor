@@ -1,223 +1,125 @@
-# 🦠 Aeromonas Growth Predictor
+# Aeromonas Growth | Predictive Microbiology & Machine Learning
 
-### *Predictive Microbiology · Machine Learning · GPR Uncertainty Quantification · SHAP Explainability*
+**Microbial growth kinetics · Leave-one-strain-out validation · Gaussian process regression · Explainable ML**
 
-[![Publication](https://img.shields.io/badge/DOI-10.1016%2Fj.ijfoodmicro.2022.109985-blue)](https://doi.org/10.1016/j.ijfoodmicro.2022.109985)
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aeromonas-growth-predictor.streamlit.app/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-GPR%20%7C%20RF%20%7C%20XGBoost-F7931E)](https://scikit-learn.org)
-[![SHAP](https://img.shields.io/badge/SHAP-TreeExplainer-FF6B35)](https://shap.readthedocs.io)
+[![Publication](https://img.shields.io/badge/Peer--reviewed-International%20Journal%20of%20Food%20Microbiology-blue)](https://doi.org/10.1016/j.ijfoodmicro.2022.109985)
+[![Streamlit app](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aeromonas-growth-predictor.streamlit.app/)
 
----
+**[Open the interactive case study](https://aeromonas-growth-predictor.streamlit.app/)** · **[Read the publication](https://doi.org/10.1016/j.ijfoodmicro.2022.109985)** · **[Review data provenance](DATA_PROVENANCE.md)**
 
-> **Based on:** Lee et al. (2023). *The effect of food processing factors on the growth kinetics of Aeromonas strains isolated from ready-to-eat seafood.* Int. J. Food Microbiology, 384:109985.
+## Project overview
 
-Machine learning extension of the Ratkowsky mechanistic model — predicting *Aeromonas* maximum growth rate (μmax, log10 CFU/h) under hurdle technology conditions (temperature, NaCl, purified condensed smoke (PCS)), with GPR-calibrated uncertainty quantification and SHAP-based feature attribution.
+**Can machine learning estimate the growth rate of an *Aeromonas* strain that was excluded from training?**
 
----
+This project connects **published food microbiology research on *Aeromonas* isolated from ready-to-eat seafood** with a subsequent Python machine learning extension. Experimental kinetic summaries were reconstructed from the publication's supplementary tables, checked against their source and evaluated with strain-held-out cross-validation. A lightweight Streamlit application presents the published experimental conditions, later ML validation and interpretation.
 
-> **Phase 1 data repair (2026-11-04):** Source records verified against Supplementary Tables A-D and the author's high-dose PCS confirmation. The master now contains 158 conditions (118 growth-positive, 40 NG). Rates retain the source decimal-log scale, log10 CFU/h. NaCl_pct means added NaCl; TSB total salt = added + 0.5 percentage points. SJ total salt is not inferred. Historical model metrics, SHAP results and saved PNGs predate this repair and require Phase 2 revalidation. See `audit/phase1/REPORT.md` and `DATA_PROVENANCE.md`.
+The original paper and the later ML project are **distinct contributions**. The ML performance numbers below are from the revalidated 2026 repository analysis, **not** from the original peer-reviewed publication.
 
-## 🖥️ Interactive App
+| Study scope | Verified repository evidence |
+|---|---|
+| **158 experimental conditions** | 110 growth observations (Y), 8 growth observations with no lag (NL), 40 no-growth observations (NG) |
+| **8 strain groups, 7 species** | Temperature, medium, added NaCl and purified condensed smoke (PCS) treatments |
+| **118 growth-positive observations** | Main growth-rate and lag regression dataset; NG is not assigned a numeric zero rate |
+| **8 held-out strain folds** | GPR, Random Forest and XGBoost compared on maximum growth rate (μmax) |
 
-**Live app →** https://aeromonas-growth-predictor.streamlit.app/
+*The reconstructed data consist of published kinetic summaries, not independent raw growth-curve time series or an externally validated food-product dataset.*
 
-Three-tab interface:
-- **📊 Prediction** — storage conditions → GPR μmax + 95% CI + time-to-threshold scenarios + SHAP waterfall + hurdle optimizer
-- **🔬 Strain Data** — measured μmax across 8 *Aeromonas* strains; TSB vs SJ medium comparison
-- **ℹ️ About** — pipeline, design decisions, validation figures, limitations
+## Interactive case study
 
----
+**[Launch the Streamlit application](https://aeromonas-growth-predictor.streamlit.app/)**
 
-## 📌 Overview
+The app is a three-section research explorer rather than a shelf-life or safety optimizer:
 
-Most ComBase predictive models for *Aeromonas* focus on *A. hydrophila* and *A. caviae*. This project extends Lee et al. (2023) to cover 8 strains — including *A. piscicola*, *A. dhakensis*, and two *A. salmonicida* strains rarely represented in existing tools — using three ML algorithms with rigorous Leave-One-Strain-Out validation.
+1. **Original research:** experimental conditions and measured growth-rate exploration, with NG/NL status preserved.
+2. **Machine learning approach:** models, explanatory workflow and eight-fold leave-one-strain-out (LOSO) evaluation.
+3. **Results & insights:** held-out predictions, Random Forest SHAP attribution, GPR prediction intervals and limitations.
 
-| Capability | What this project demonstrates |
-|-----------|-------------------------------|
-| **Domain-driven design** | LOSO CV strategy, feature selection rationale, and scope decisions grounded in predictive microbiology principles |
-| **Uncertainty quantification** | GPR LOSO R² = 0.892 ± 0.040 — calibrated 95% CI maps directly to fast/slow growth scenarios |
-| **Explainable AI** | SHAP waterfall + global importance — purified condensed smoke (PCS) ranked above NaCl as chemical hurdle |
-| **Validation rigour** | Leave-One-Strain-Out CV (8 folds) — strain-naive generalisation, zero data leakage between strains |
-| **Interactive research tool** | Time-to-threshold calculator, hurdle optimizer, strain reference panel |
+The application reads committed CSV artifacts and **does not retrain models, run SHAP or load pickle files on startup**. The public URL is linked for convenience; a fresh hosted deployment smoke test should be performed before external promotion.
 
----
+## Key scientific and ML findings
 
-## 🔬 Key Findings
+- **LOSO performance:** GPR attained mean strain-fold R² **0.8954**, compared with **0.8716** for Random Forest and **0.8357** for XGBoost. These are unweighted means across eight strain folds, **not** pooled out-of-fold scores; selecting the best model on these folds is not independent post-selection validation.
+- **Uncertainty:** 112/118 growth-positive observations (**94.92%**) fell within GPR's nominal 95% intervals during internal LOSO evaluation. This does not establish independent calibration or reliable uncertainty outside the study conditions.
+- **Model interpretation:** RF mean-absolute SHAP importance ranked **temperature > PCS concentration > medium > added NaCl > PCS type**. This is an attribution to a fitted model, **not** evidence of causal treatment effects, antimicrobial efficiency or interaction.
+- **Ratkowsky reference:** on a **separate 41-observation temperature-experiment subset**, pooled OOF R² was **0.90285** for GPR and **0.76786** for a temperature-only Ratkowsky fit. The ML model also uses medium, and the fitting objectives differ; this is **not** an identical-information comparison or a reproduction of the paper's per-strain Ratkowsky analysis.
+- **Scope decision:** lag-time performance was variable and Ymax generalization was poor (negative mean fold R²); neither is presented as a validated application target.
 
-| Dimension | Finding |
-|-----------|---------|
-| **Primary μmax driver** | Temperature — ~4× SHAP weight vs all other features; Ratkowsky model confirmed at ML level |
-| **Chemical hurdle attribution** | Historical RF attribution only; not comparative antimicrobial efficiency |
-| **PCS doses** | 0.026%, 0.13%, and author-confirmed 0.26%; no universal threshold established |
-| **Medium effect** | SJ (salmon juice) μmax ≈ 35% lower than TSB — captured from Table A paired data |
-| **ML vs Ratkowsky** | GPR R²=0.892 vs Ratkowsky R²=0.612 under identical LOSO protocol (Temperature subset) |
-| **Scope decisions** | lag_h excluded (per-fold R²=0.579±0.365); Ymax excluded (R²<0 across all models) |
-| **Feature design** | species_enc excluded by LOSO design — strain-naive model improves RF R² by +0.039 |
+The validated source and result definitions are documented in **[DATA_PROVENANCE.md](DATA_PROVENANCE.md)**, the [Phase 1 source audit](audit/phase1/REPORT.md) and the [Phase 2 revalidation report](audit/phase2/REPORT.md).
 
----
+## Research and project contributions
 
-## 🗂️ Repository Structure
+**Original published research (PhD):** Lee et al. (2023) investigated *Aeromonas* growth kinetics under temperature, sodium chloride, purified condensed smoke (PCS) and culture-medium conditions. This is collaborative peer-reviewed research. First authorship does not imply that all experiments or analysis stages were performed individually; consult the publication for the author list and study methods.
 
-```
-aeromonas-growth-predictor/
-│
-├── step1_data_extraction_eda.ipynb   # Data extraction, EDA, Ratkowsky reproduction
-├── step2_ml_modeling_v5.ipynb        # GPR / RF / XGBoost, LOSO CV, robustness validation
-├── step3_shap_analysis.ipynb         # SHAP feature attribution, hurdle interaction analysis
-├── streamlit_app.py                  # Interactive 3-tab Streamlit app
-│
-├── models/                           # Serialised model artefacts (generated by Step 2)
-│   ├── best_mu_max.pkl               # GPR — primary prediction model
-│   ├── best_lag_h.pkl                # RF — reference only (excluded from app)
-│   ├── best_ymax.pkl                 # RF — reference only (excluded from app)
-│   └── encoders.pkl                  # LabelEncoders: medium, PCS type, species
-│
-├── outputs/                          # Figures and CSVs (generated by Steps 1–3)
-│   ├── aeromonas_kinetics_master.csv # Master dataset — required by Steps 2, 3, app
-│   ├── step2_loso_performance_summary.csv
-│   ├── step2_ml_vs_ratkowsky_benchmark.csv
-│   ├── step3_shap_values.csv
-│   └── [figures 01–19: see notebooks for descriptions]
-│
-└── requirements.txt
-```
+**Later ML extension:** This repository structures the published kinetic summaries for Python analysis and implements GPR, Random Forest, XGBoost, LOSO evaluation, RF SHAP analysis and an interactive research explorer. These analyses are separate from the original publication. Attribution of individual implementation work and AI assistance should not be inferred solely from repository ownership.
 
----
+**Source reconciliation and revalidation (2026):** The supplementary tables were compared condition by condition (158/158 reconciled). The author confirmed that the high PCS dose was **0.26%**, correcting conflicting **2.6%** table labels; omitted NG conditions and record flags were restored. Existing ML settings were then rerun and results checked. See the audit records for exact changes and remaining ambiguities.
 
-## 📊 Notebook Pipeline
+## Methods and technologies
 
-Run notebooks **in order** — each asserts the previous output exists.
+| Area | Methods / tools |
+|---|---|
+| **Published microbiology study** | Growth kinetics, experimental temperature/NaCl/PCS conditions, Baranyi and Roberts primary growth-model parameters, Ratkowsky temperature-based modeling |
+| **Data preparation** | Python, pandas, supplementary-table reconstruction, source-level flag and unit checks |
+| **Machine learning and validation** | scikit-learn GPR and Random Forest, XGBoost, eight-fold LOSO, R²/MAE/RMSE, GPR intervals |
+| **Interpretability** | SHAP TreeExplainer for full-data RF; descriptive feature attribution |
+| **Exploration and visualisation** | Jupyter, Matplotlib, Plotly, Streamlit |
 
-| Step | Notebook | Key sections | Output |
-|------|----------|-------------|--------|
-| 1 | `step1_data_extraction_eda.ipynb` | Data extraction (Tables A–D), EDA, Ratkowsky reproduction | `aeromonas_kinetics_master.csv` |
-| 2 | `step2_ml_modeling_v5.ipynb` | Feature selection → LOSO CV → scope decision → robustness validation (§6a–c) → ML vs Ratkowsky benchmark | `models/*.pkl`, LOSO figures |
-| 3 | `step3_shap_analysis.ipynb` | SHAP beeswarm, importance ranking, dependence plots, per-strain analysis, hurdle interaction | `step3_shap_values.csv`, SHAP figures |
-| 4 | `streamlit_app.py` | — | Interactive app (runs against outputs/ and models/) |
+**Five environmental predictors:** temperature, culture medium, **added** NaCl (%), PCS concentration (%) and PCS type. Strain identity was withheld as a predictor; the held-out strain's observations were excluded from fitting. Ordinal encoding of categorical features remains a limitation.
 
----
+## Repository guide
 
-## ⚙️ Model Design
+| Path | Contents |
+|---|---|
+| [`step1_data_extraction_eda.ipynb`](step1_data_extraction_eda.ipynb) | Data reconstruction, exploratory analysis and Ratkowsky-related analysis |
+| [`step2_ml_modeling_v5.ipynb`](step2_ml_modeling_v5.ipynb) | Original ML workflow, LOSO and benchmark implementations; saved notebook outputs/narratives can be historical |
+| [`step3_shap_analysis.ipynb`](step3_shap_analysis.ipynb) | RF feature-attribution analysis and plots; some historical inline outputs remain |
+| [`streamlit_app.py`](streamlit_app.py) | Three-section, CSV-driven scientific case study |
+| [`outputs/aeromonas_kinetics_master.csv`](outputs/aeromonas_kinetics_master.csv) | Corrected 158-condition experimental summary dataset |
+| [`outputs/step2_loso_performance_summary.csv`](outputs/step2_loso_performance_summary.csv) | Revalidated per-model mean strain-fold metrics |
+| [`outputs/step3_hurdle_ranking.csv`](outputs/step3_hurdle_ranking.csv) | Recalculated RF SHAP importance |
+| [`audit/phase1/`](audit/phase1/REPORT.md) | Source reconciliation, discrepancy log and QA |
+| [`audit/phase2/`](audit/phase2/REPORT.md) | Revalidated fold checks, out-of-fold predictions, intervals and caveats |
+| [`DATA_PROVENANCE.md`](DATA_PROVENANCE.md) | Source conventions, PCS correction and unresolved unit/uncertainty notes |
 
-### Why LOSO (Leave-One-Strain-Out)?
+**Figure provenance:** Use the dated Phase 2 audit and refreshed saved figures for current numerical claims. Older notebook inline results and some historical plots may not have been regenerated.
 
-Standard K-fold CV leaks information across strains — samples from the same strain appear in both train and test. LOSO holds out *all records from one strain* per fold, answering the relevant question: *"Can this model predict μmax for a strain it has never seen?"*
-
-### Why species_enc is excluded
-
-Including strain identity contradicts LOSO's strain-naive assumption. If the model learns `A. media → integer 3 → μmax pattern X`, then receiving `species_enc=3` at test time means the "unseen" strain's identity is already known. Empirical validation (Step 2 §6a) confirms exclusion improves RF LOSO R² by +0.039; SHAP (Step 3) independently shows species as the lowest-importance feature.
-
-### Dual-model architecture
-
-GPR cannot use SHAP TreeExplainer (not tree-based). RF is the strongest SHAP-compatible model — its predictions are reliable enough that SHAP values reflect genuine biological signal.
-
-| Purpose | Model | LOSO R² (μmax) |
-|---------|-------|----------------|
-| Prediction + calibrated uncertainty | GPR | 0.892 ± 0.040 |
-| SHAP interpretability | RandomForest | 0.865 ± 0.053 |
-| Gradient boosting baseline | XGBoost | 0.839 ± 0.064 |
-
----
-
-## 🧰 Tech Stack
-
-| Layer | Tools |
-|-------|-------|
-| **Language** | Python 3.10+ |
-| **ML / statistics** | scikit-learn (GPR, RF) · XGBoost · scipy |
-| **Explainability** | SHAP (TreeExplainer) |
-| **Data** | pandas · numpy |
-| **Visualisation** | matplotlib · seaborn · plotly |
-| **App** | Streamlit |
-| **Serialisation** | joblib |
-
----
-
-## ▶️ Setup and Run
+## Run the app locally
 
 ```bash
-# Clone
 git clone https://github.com/hyejeong0617/aeromonas-growth-predictor.git
 cd aeromonas-growth-predictor
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run notebooks in order (each step generates outputs required by the next)
-# jupyter notebook step1_data_extraction_eda.ipynb
-# jupyter notebook step2_ml_modeling_v5.ipynb
-# jupyter notebook step3_shap_analysis.ipynb
-
-# Launch app
+python -m pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
----
+Launching the Streamlit case study only reads saved result tables; **do not rerun the notebooks to launch it**. The existing requirements also include optional research/ML dependencies and are not a locked environment. A clean hosted-environment installation should be checked before promoting the deployed URL.
 
-## ⚠️ Scope and Limitations
+## Scientific interpretation and limitations
 
-| Limitation | Detail |
-|-----------|--------|
-| **Laboratory medium** | All predictions based on TSB (broth). Limited SJ (salmon juice) data covers temperature only. **Not directly applicable as product shelf-life.** |
-| **Growth scenario ≠ shelf-life** | Food matrix effects (pH gradients, water activity, competing microbiota) are absent from the model. |
-| **n=118, 8 strains** | Small dataset — limited taxonomic coverage; not generalisable beyond the experimental design. |
-| **NaCl × PCS not co-tested** | Interaction between salt and purified condensed smoke (PCS) is structurally absent from training data. |
-| **lag_h not predicted** | Per-fold R²=0.579±0.365 — too unstable; treated as user-defined assumption in the app. |
-| **Temperature range** | Trained on 4, 8, 15°C only. Intermediate values = GPR interpolation; values outside = extrapolation (CI widens automatically). |
+- **Study scale:** a small, correlated set of laboratory conditions with eight strain groups; LOSO is internal validation, not an independent laboratory or food-product test.
+- **Growth/no growth:** μmax regression uses only 118 observed-growth conditions; 40 NG conditions remain recorded but are not used to fit a growth/no-growth classifier.
+- **Experimental conventions:** PCS is **purified condensed smoke**, with source doses 0.026%, 0.13% and author-confirmed **0.26%**. NaCl is **added salt**; in TSB total salt = added salt + 0.5 percentage points. SJ total salt is not inferred.
+- **Original-source ambiguities:** the supplementary SD/SE terminology and Ymax concentration denominator are unresolved and have not been silently converted.
+- **Model limitations:** ordinal category distances, small sample size and fold-based model selection constrain claims; SHAP attribution does not prove causality.
+- **Not a food-safety decision tool:** no validated shelf-life estimates, inhibition thresholds, commercial optimization, regulatory advice or general population-level risk predictions are supported.
 
-> ⚠️ **Research and educational purposes only — not for regulatory or commercial food safety decisions.**
+For correction provenance and reproducibility boundaries, see [Phase 1](audit/phase1/REPORT.md) and [Phase 2](audit/phase2/REPORT.md).
 
----
+## Publication and data
 
-## 🔗 Related Projects
+**Lee H-J, et al. (2023).** *The effect of food processing factors on the growth kinetics of Aeromonas strains isolated from ready-to-eat seafood.* **International Journal of Food Microbiology**, 384, 109985. [DOI: 10.1016/j.ijfoodmicro.2022.109985](https://doi.org/10.1016/j.ijfoodmicro.2022.109985).
 
-| Project | Domain | Type | Status |
-|---|---|---|---|
-| [rasff_risk_predictor](https://github.com/hyejeong0617/rasff_risk_predictor) | EU regulatory notifications | ML pipeline · NLP · Streamlit | ✅ Live |
-| [foodborne_outbreaks_eda](https://github.com/hyejeong0617/foodborne_outbreaks_eda) | Food safety surveillance | EDA · SQL · entity normalisation · Streamlit | ✅ Live |
-| **This repo** | Predictive microbiology · food safety | ML · GPR · SHAP · Streamlit | ✅ Live |
-| [amr_genomics_aeromonas](https://github.com/hyejeong0617/amr_genomics_aeromonas) | Microbial genomics · One Health | WGS pipeline · Python analysis · Streamlit | ✅ Live |
+The dataset was reconstructed from the publication's supplementary Tables A–D. It is **not** a newly generated independent experimental dataset; see [source data and corrections](DATA_PROVENANCE.md).
 
-**The four projects form a connected portfolio** — analysing food safety risk at four scales: real-time EU regulatory signal (RASFF ML), population-level surveillance (foodborne EDA), growth kinetics modelling (this repo), and molecular genomics (AMR genomics).
+## Related portfolio projects
+
+- [AMR Genomics — *Aeromonas*](https://github.com/hyejeong0617/amr_genomics_aeromonas) — microbial genomics, AMR and scientific analysis
+- [RASFF Risk Predictor](https://github.com/hyejeong0617/rasff_risk_predictor) — food safety notification data and machine learning
+- [Foodborne Outbreaks EDA](https://github.com/hyejeong0617/foodborne_outbreaks_eda) — SQL and outbreak surveillance
+- [EU Food Regulatory Agent](https://github.com/hyejeong0617/Regulatory_agent) — LLM/RAG and regulatory document investigation
 
 ---
 
-## 📄 Citation
+**Scientific data science for food safety, biotechnology and applied AI**
 
-```bibtex
-@article{lee2023aeromonas_kinetics,
-  author  = {Lee, Hye-Jeong and others},
-  title   = {The effect of food processing factors on the growth kinetics of
-             {Aeromonas} strains isolated from ready-to-eat seafood},
-  journal = {International Journal of Food Microbiology},
-  volume  = {384},
-  pages   = {109985},
-  year    = {2023},
-  doi     = {10.1016/j.ijfoodmicro.2022.109985}
-}
-```
-
-
----
-
-## 📬 Contact
-
-**Hyejeong Lee** — PhD · Food Microbiology & Data Science
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hyejeong%20Lee-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hyejeong-lee-75887465/)
-[![GitHub](https://img.shields.io/badge/GitHub-hyejeong0617-181717?logo=github&logoColor=white)](https://github.com/hyejeong0617)
-
-*Open to Domain Data Scientist / Regulatory Data Analyst roles in food safety, 
-      pharma, and biotech — Remote / Hybrid · Germany-based.*
-
-## Source data and units
-
-The canonical Step 1 notebook constructs the master CSV and verifies it against
-`data/supplementary_records.json`, a transcription of the supplied Supplementary Tables A-D.
-See [Data provenance](DATA_PROVENANCE.md) and [Phase 1 verification report](audit/phase1/REPORT.md).
-`NaCl_pct` is added NaCl (%); total TSB salt is added + 0.5 percentage points.
-SJ total salt is not inferred. Rates are used on the source decimal-log scale:
-`growth_duration_h = (log10_target - log10_initial) / rate_log10_per_h`.
-This is a constant-rate scenario with assumed lag, not a food-safety threshold or shelf-life model.
-Do not launch the app during the Phase 1 review: its current cold-start path fits RF and GPR.
+[GitHub profile](https://github.com/hyejeong0617) · [LinkedIn](https://www.linkedin.com/in/hyejeong-lee-75887465/)
